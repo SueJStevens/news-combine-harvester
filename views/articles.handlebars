@@ -1,0 +1,78 @@
+<body>
+  <div id="wrapper" class="container">
+    <h1>The Latest Farm News...At Your Fingertips</h1>
+    <div id="articles">
+
+
+      {{#each data}}
+      <div data-_id="{{this._id}}" class="card m-5">
+        <div class="card-header">
+          <h4>
+            <a class="article-link" target="_blank" rel="noopener noreferrer" href="http://www.idahocountyfreepress.com{{this.link}}">{{this.title}}</a>
+          </h4>
+        </div>
+          <div class="card-body">{{this.content}}</div>
+
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0 w-100 d-flex justify-content-between">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Show Comments
+                </button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-secondary btn-sm add" data-toggle="modal" data-target="#commentModal">
+                  Add Comment
+                </button>
+              </h5>
+            </div>  
+            <div id="collapseOne" class="panel-collapse collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                {{#each this.notes as |item|}}
+                <div>
+                  <p class="lead">{{item.title}}</p>
+                  <p>{{item.body}}</p>
+                </div>
+                
+                {{/each}}
+
+              </div>
+            </div>
+          </div><!--Close Card-->
+        </div><!--Close Accordian-->
+
+      </div><!--Close Article Card-->
+
+      <!-- Modal -->
+      <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="commentModalLabel">{{this.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id='titleinput' name='title'>
+              </div>
+              <div class="form-group">
+                <label for="body">Comment</label>
+                <textarea class="form-control" id="bodyinput" name='body' rows="3"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary save" data-id='{{this._id}}' id='save'>Save Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{/each}}
+    </div>
+  </div>
+  <script src="/assets/js/app.js"></script>
+</body>
