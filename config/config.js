@@ -1,6 +1,4 @@
 require("dotenv").config();
 module.exports = {
-  production: {
-    useEnvVariable: "MONGODB_URI",
-  }
+  MONGODB_URI: "MONGODB_URI",
 };
