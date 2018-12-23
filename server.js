@@ -1,4 +1,4 @@
-require("dotenv").config();
+//require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var logger = require("morgan");
@@ -26,9 +26,15 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+var databaseUri = 'mongodb://localhost/mongo-news-combine-harvester-db';
+if (process.env.MONGODB_URI) {
+  mongoose.connect( MONGODB_URI, { useNewUrlParser: true });  
+} else {
+  mongoose.connect (databaseUri);  
+}
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-news-combine-harvester-db";
-mongoose.connect( MONGODB_URI, { useNewUrlParser: true });
+//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-news-combine-harvester-db";
+//mongoose.connect( MONGODB_URI, { useNewUrlParser: true });
 //mongoose.connect("mongodb://localhost/mongo-news-combine-harvester-db", { useNewUrlParser: true });
 
 // Routes
@@ -37,4 +43,4 @@ require("./routes/htmlRoutes")(app);
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
-});
+}); 
