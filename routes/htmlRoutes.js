@@ -29,6 +29,9 @@ module.exports = function(app) {
         .next().next()
         .text().replace(" read more..","");
         //console.log(result);
+
+        //compare articles scrapped to existing articles in collection
+        //?????????  HOW?
   
         // Create a new Article using the `result` object built from scraping
         db.Article.create(result)
@@ -47,6 +50,9 @@ module.exports = function(app) {
       // Send a message to the client
       res.send("Scrape Complete");
       console.log("Scrape Complete");
+
+      //redirect to articles
+      res.redirect("/articles")
     });
   });
   
@@ -132,6 +138,11 @@ module.exports = function(app) {
   });
 
   // Load index page
+  app.get("/index", function(req, res) {
+    res.render("index");
+});  
+
+// Load index page
   app.get("/", function(req, res) {
       res.render("index");
   });  

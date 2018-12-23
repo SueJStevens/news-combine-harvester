@@ -1,9 +1,62 @@
-  <body>
-    <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <h2><i>If you can do this...the homework should be no problem.</i></h2>
-      <div id="articles"></div>
-      <div id="notes"></div>
+  <!-- Begin page content -->
+  <main class="container">
+    <div class="row">
+      <div class="col-sm-12 mt-3 NewspaperHeadline">
+        <h1>Headlines from Yesterday</h1>
+        <hr>
+      </div>
     </div>
+
+    <div class="row mb-5">
+      <div class="col-xl-9 col-lg-8 col-md-9 col-sm-10">
+        <img class="img-fluid float-left pr-3" src="/assets/images/SearsRobuckBarns.jpg" alt="Barn History"
+          id="aboutImg">
+        <span class="Newspaper Print">
+          <p class="text-justify">There are several theories as to why barns are painted red.  One belief is that barns are red so a farmer's cows can find their way home, but if so, that's a failed strategy since cattle are colorblind to the colors red and green.</p>
+          <p class="text-justify">The truth is a farmer mixed his own paint using the ingrediants of skimmed milk, lime, red iron oxide, ferrous oxide and linseed oil.  This recipe soaked into the wood, created a plastic-like coating that hardened quickly, and lasted for years.  The ingrediant ferrous oxide, otherwise known as rust, was plentiful on farms and was known to kill fungi, mold and moss.</p>
+          <img class="img-fluid float-right pl-3" src="/assets/images/RedAngus.jpg" alt="Red Angus"
+            id="aboutImg">
+          <p class="text-justify">But what about those color-blind cows...Truth or Fiction?  Cows have only two color receptors, unlike farmers who have three resulting in trichromatic color vision.  Cows can see black, gray, and muted versions of yellow and blue.</p>
+          <p class="text-justify">And while we're on the subject of the color of cows, lets talk about Red and Black Angus beef...</p>
+        </span>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-3 col-sm-2 d-none d-sm-block">
+        <div class="row">
+          <div class="col-12">
+            <p Class="NewspaperHeadline text-center">Glossary of Terms</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="text-justify">
+            <a href="/scrape" class="btn text-center"><i class="fas fa-tractor"></i> Scrape</a>
+            <p class="mx-4 small">Noun. /skreɪp/ Tool or device used for scraping, especially for removing dirt, paint, or other unwanted matter from a surface.</p>
+            <p class="mx-4 small">Verb. Data scraping is a technique in which a computer program extracts data from human-readable output coming from another program.</p>
+            </div>
+
+            <div class="text-justify">
+            <a href="/api/articles" class="btn text-center"><i class="fal fa-newspaper"></i> News</a>
+            <p class="mx-4 small">Noun.  /n(y)o͞oz/ newly received or noteworthy information, especially about recent or important events.</p>
+            <p class="mx-4 small">Verb. Data harvesting in the online world refers to gathering user information (by way of email addresses, IM handles, social media sites, surfing behaviors, online ads clicked on, etc.) from the Internet.</p>
+            </div>
+
+            <div class="text-justify">
+            <a href="/api/articles-and-notes" class="btn text-center"><i class="fas fa-wheat"></i> Harvest</a>
+            <p class="mx-4 small">Noun.  /ˈhɑr·vəst/ The activity or time of gathering a crop, or a crop that is gathered.</p>
+            <p class="mx-4 small">Computer Definition. Network Extensible Windowing Support (NeWS). A networked windowing system (similar to X Windows) from Sun Microsystems that renders PostScript fonts on screen the way they print on a PostScript printer. Developed in the mid-1980's.  Discontinued.</p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+      <button class="btn-outline-dark">Read More!</button>
+    </div>
+  </main>
+
+
+
     <script src="/assets/js/app.js"></script>
-  </body>
+  
