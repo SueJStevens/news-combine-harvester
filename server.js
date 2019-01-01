@@ -31,7 +31,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-news-com
 if (process.env.MONGODB_URI) {
   mongoose.connect( MONGODB_URI, { useNewUrlParser: true });  
 } else {
-  mongoose.connect (databaseUri);  
+  mongoose.connect (databaseUri, { useNewUrlParser: true });  
 }
 // Connect to the Mongo DB
 //mongoose.connect( MONGODB_URI, { useNewUrlParser: true });

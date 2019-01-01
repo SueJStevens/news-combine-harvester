@@ -36,23 +36,33 @@ module.exports = function(app) {
         // Create a new Article using the `result` object built from scraping
         db.Article.create(result)
           .then(function(dbArticle) {
+
             // View the added result in the console
-            //console.log("Create!");
-            //console.log(dbArticle);
+            db.Article.find({})
+            .populate("notes")
+            .then(function(dbArticle) {
+              // If we were able to successfully find Articles, send them back to the client  
+              res.render("articles", {data:dbArticle});
+            })
+
           })
           .catch(function(err) {
+            //If error code is E11000 -- it means a duplicate, so skip and carryon.
+            console.log(err)
             // If an error occurred, log it
             //console.log("Error!");
-            console.log(err);
+
+            //console.log(err);
+            next(err);
           });
        });
   
       // Send a message to the client
-      res.send("Scrape Complete");
+      //res.send("Scrape Complete");
       console.log("Scrape Complete");
 
       //redirect to articles
-      res.redirect("/articles")
+      //res.render("/articles")
     });
   });
   
